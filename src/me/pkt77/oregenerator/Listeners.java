@@ -22,12 +22,12 @@ public class Listeners implements Listener {
 
 	@EventHandler
 	public void onFromTo(BlockFromEvent event) {
-		int id = event.getBlock().getTypeId();
+		int id = event.getBlock().getId();
 		if (id >= 8 && id <= 11) {
-			Block b = event.getToBlock();
-			int toid = b.getTypeId();
+			Block block = event.getBlock();
+			int toid = block.getId();
 			if (toid == 0) {
-				if (generatesCobble(id, b)) {
+				if (generatesCobble(id, block)) {
 					List<String> worlds = _og.getConfig().getStringList("Worlds");
 					if (worlds.contains(event.getBlock().getLocation().getWorld().getName())) {
 						Random pick = new Random();
@@ -45,28 +45,28 @@ public class Listeners implements Listener {
 						double diamond = _og.getConfig().getDouble("Chances.Diamond");
 
 						if (chance > 0 && chance <= coal) {
-							this.getLevel().setBlock(Block.COAL_ORE);
+							this.setBlock(Block.COAL_ORE);
 						}
 						if (chance > coal && chance <= iron) {
-							this.getLevel().setBlock(Block.IRON_ORE);
+							this.setBlock(Block.IRON_ORE);
 						}
 						if (chance > iron && chance <= gold) {
-							this.getLevel().setBlock(Block.GOLD_ORE);
+							this.setBlock(Block.GOLD_ORE);
 						}
 						if (chance > gold && chance <= redstone) {
-							this.getLevel().setBlock(Block.REDSTONE_ORE);
+							this.setBlock(Block.REDSTONE_ORE);
 						}
 						if (chance > redstone && chance <= lapis) {
-							this.getLevel().setBlock(Block.LAPIS_ORE);
+							this.setBlock(Block.LAPIS_ORE);
 						}
 						if (chance > lapis && chance <= emerald) {
-							this.getLevel().setBlock(Block.EMERALD_ORE);
+							this.setBlock(Block.EMERALD_ORE);
 						}
 						if (chance > emerald && chance <= diamond) {
-							this.getLevel().setBlock(Block.DIAMOND_ORE);
+							this.setBlock(Block.DIAMOND_ORE);
 						}
 						if (chance > diamond && chance <= 100) {
-							this.getLevel().setBlock(Block.COBBLESTONE);
+							this.setBlock(Block.COBBLESTONE);
 						}
 					}
 				}
@@ -85,12 +85,12 @@ public class Listeners implements Listener {
                 return this;
         }
     }
-	public boolean generatesCobble(int id, Block b) {
+	public boolean generatesCobble(int id, Block block) {
 		int mirrorID1 = (id == 8 || id == 9 ? 10 : 8);
 		int mirrorID2 = (id == 8 || id == 9 ? 11 : 9);
 		for (Vector3 side : side) {
-			Block r = b.getRelative(side, 1);
-			if (r.getId() == mirrorID1 || r.getId() == mirrorID2) {
+			Block blocks = block.getRelative(side, 1);
+			if (blocks.getId() == mirrorID1 || blocks.getId() == mirrorID2) {
 				return true;
 			}
 		}
