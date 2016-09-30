@@ -73,8 +73,24 @@ public class Listeners implements Listener {
 			}
 		}
 	}
-	private final Vector3 side = new Vector3 { Vector3.SIDE_UP, Vector3.SIDE_DOWN, Vector3.SIDE_NORTH, Vector3.SIDE_EAST, Vector3.SIDE_SOUTH, Vector3.SIDE_WEST };
-
+    private final int Vector3 getSide(int side, int step) {
+        switch (side) {
+            case Vector3.SIDE_DOWN:
+                return new Vector3(this.x, this.y - step, this.z);
+            case Vector3.SIDE_UP:
+                return new Vector3(this.x, this.y + step, this.z);
+            case Vector3.SIDE_NORTH:
+                return new Vector3(this.x, this.y, this.z - step);
+            case Vector3.SIDE_SOUTH:
+                return new Vector3(this.x, this.y, this.z + step);
+            case Vector3.SIDE_WEST:
+                return new Vector3(this.x - step, this.y, this.z);
+            case Vector3.SIDE_EAST:
+                return new Vector3(this.x + step, this.y, this.z);
+            default:
+                return this;
+        }
+    }
 	public boolean generatesCobble(int id, Block b) {
 		int mirrorID1 = (id == 8 || id == 9 ? 10 : 8);
 		int mirrorID2 = (id == 8 || id == 9 ? 11 : 9);
