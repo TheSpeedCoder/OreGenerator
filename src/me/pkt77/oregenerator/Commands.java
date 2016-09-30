@@ -1,10 +1,10 @@
 package me.pkt77.oregenerator;
 
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import cn.nukkit.utils.TextFormat;
+import cn.nukkit.command.Command;
+import cn.nukkit.command.CommandExecutor;
+import cn.nukkit.command.CommandSender;
+import cn.nukkit.Player;
 
 public class Commands implements CommandExecutor {
 	private OreGenerator _og;
@@ -18,9 +18,9 @@ public class Commands implements CommandExecutor {
 		if (commandLabel.equalsIgnoreCase("og")) {
 			if (args.length == 0) {
 				if (sender.hasPermission("og.reload")) {
-					sender.sendMessage(ChatColor.GREEN + "===== OreGenerator Commands ===== \n" + "/og reload   Reloads the config file.");
+					sender.sendMessage(TextFormat.GREEN + "===== OreGenerator Commands ===== \n" + "/og reload   Reloads the config file.");
 				} else {
-					sender.sendMessage(ChatColor.RED + "You do not have permission to use this command");
+					sender.sendMessage(TextFormat.RED + "You do not have permission to use this command");
 				}
 				return true;
 			} else {
@@ -30,9 +30,9 @@ public class Commands implements CommandExecutor {
 						player = (Player) sender;
 						if (player.hasPermission("og.reload")) {
 							_og.reloadConfig();
-							sender.sendMessage(ChatColor.GREEN + "OreGenerator config file reloaded.");
+							sender.sendMessage(TextFormat.GREEN + "OreGenerator config file reloaded.");
 						} else {
-							sender.sendMessage(ChatColor.RED + "You do not have permission to use this command");
+							sender.sendMessage(TextFormat.RED + "You do not have permission to use this command");
 						}
 					} else {
 						_og.reloadConfig();
