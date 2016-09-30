@@ -1,7 +1,7 @@
-name: OreGenerator for Nukkit
+name: OreGenerator-Nukkit
 main: me.pkt77.oregenerator.OreGenerator
 version: 2.0
-author: pkt77, NycuRO
+author: NycuRO
 
 commands:
     og:
