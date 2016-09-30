@@ -3,11 +3,11 @@ package me.pkt77.oregenerator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-import org.bukkit.World;
-import org.bukkit.plugin.java.JavaPlugin;
+import cn.nukkit.level.generator.Normal;
+import cn.nukkit.plugin.PluginBase;
 
-public class OreGenerator extends JavaPlugin {
-	public final Logger log = Logger.getLogger("Minecraft");
+public class OreGenerator extends PluginBase {
+	public final Logger log = Logger.getLogger("Minecraft Pocket Edition");
 
 	/*CHANGELOG :
 	 * V1.0 :
@@ -31,7 +31,7 @@ public class OreGenerator extends JavaPlugin {
 
 	public List<String> addWorlds() {
 		List<String> worldList = new ArrayList<String>();
-		for (World w : getServer().getWorlds()) {
+		for (Normal w : getServer().getWorlds()) {
 			worldList.add(w.getName());
 		}
 		return worldList;
