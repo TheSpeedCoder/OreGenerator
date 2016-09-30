@@ -9,6 +9,7 @@ import cn.nukkit.blockentity.BlockEntity;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.block.BlockFromEvent;
+import cn.nukkit.level.*;
 
 public class Listeners implements Listener {
 	private OreGenerator _og;
@@ -71,18 +72,17 @@ public class Listeners implements Listener {
 			}
 		}
 	}
-
-	/*private final BlockFace[] faces = new BlockFace[] { BlockFace.SELF, BlockFace.UP, BlockFace.DOWN, BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST };
+	private final Vector3[] side = new Vector3[] { Vector3.SIDE_UP, Vector3.SIDE_DOWN, Vector3.SIDE_NORTH, Vector3.SIDE_EAST, Vector3.SIDE_SOUTH, Vector3.SIDE_WEST };
 
 	public boolean generatesCobble(int id, Block b) {
 		int mirrorID1 = (id == 8 || id == 9 ? 10 : 8);
 		int mirrorID2 = (id == 8 || id == 9 ? 11 : 9);
-		for (BlockFace face : faces) {
-			Block r = b.getRelative(face, 1);
+		for (Vector3 side : side) {
+			Block r = b.getRelative(side, 1);
 			if (r.getTypeId() == mirrorID1 || r.getTypeId() == mirrorID2) {
 				return true;
 			}
 		}
 		return false;
-	}*/
+	}
 }
