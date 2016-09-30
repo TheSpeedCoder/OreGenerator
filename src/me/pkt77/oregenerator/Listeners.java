@@ -2,12 +2,13 @@ package me.pkt77.oregenerator;
 
 import java.util.List;
 import java.util.Random;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockFromToEvent;
+//import org.bukkit.Material;
+import cn.nukkit.block.BlockAir;
+import cn.nukkit.block.Block;
+import cn.nukkit.blockentity.BlockEntity;
+import cn.nukkit.event.EventHandler;
+import cn.nukkit.event.Listener;
+import cn.nukkit.event.block.BlockFromEvent;
 
 public class Listeners implements Listener {
 	private OreGenerator _og;
@@ -18,7 +19,7 @@ public class Listeners implements Listener {
 	}
 
 	@EventHandler
-	public void onFromTo(BlockFromToEvent event) {
+	public void onFromTo(BlockFromEvent event) {
 		int id = event.getBlock().getTypeId();
 		if (id >= 8 && id <= 11) {
 			Block b = event.getToBlock();
@@ -71,7 +72,7 @@ public class Listeners implements Listener {
 		}
 	}
 
-	private final BlockFace[] faces = new BlockFace[] { BlockFace.SELF, BlockFace.UP, BlockFace.DOWN, BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST };
+	/*private final BlockFace[] faces = new BlockFace[] { BlockFace.SELF, BlockFace.UP, BlockFace.DOWN, BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST };
 
 	public boolean generatesCobble(int id, Block b) {
 		int mirrorID1 = (id == 8 || id == 9 ? 10 : 8);
@@ -83,5 +84,5 @@ public class Listeners implements Listener {
 			}
 		}
 		return false;
-	}
+	}*/
 }
