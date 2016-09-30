@@ -43,28 +43,28 @@ public class Listeners implements Listener {
 						double diamond = _og.getConfig().getDouble("Chances.Diamond");
 
 						if (chance > 0 && chance <= coal) {
-							b.setType(Block.COAL_ORE);
+							return Block.COAL_ORE;
 						}
 						if (chance > coal && chance <= iron) {
-							b.setType(Block.IRON_ORE);
+							return Block.IRON_ORE;
 						}
 						if (chance > iron && chance <= gold) {
-							b.setType(Block.GOLD_ORE);
+							return Block.GOLD_ORE;
 						}
 						if (chance > gold && chance <= redstone) {
-							b.setType(Block.REDSTONE_ORE);
+							return Block.REDSTONE_ORE;
 						}
 						if (chance > redstone && chance <= lapis) {
-							b.setType(Block.LAPIS_ORE);
+							return Block.LAPIS_ORE;
 						}
 						if (chance > lapis && chance <= emerald) {
-							b.setType(Block.EMERALD_ORE);
+							return Block.EMERALD_ORE;
 						}
 						if (chance > emerald && chance <= diamond) {
-							b.setType(Block.DIAMOND_ORE);
+							return Block.DIAMOND_ORE;
 						}
 						if (chance > diamond && chance <= 100) {
-							b.setType(Block.COBBLESTONE);
+							return Block.COBBLESTONE;
 						}
 					}
 				}
