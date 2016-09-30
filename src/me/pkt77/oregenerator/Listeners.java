@@ -80,7 +80,7 @@ public class Listeners implements Listener {
 		int mirrorID2 = (id == 8 || id == 9 ? 11 : 9);
 		for (Vector3 side : side) {
 			Block r = b.getRelative(side, 1);
-			if (r.getTypeId() == mirrorID1 || r.getTypeId() == mirrorID2) {
+			if (r.getId() == mirrorID1 || r.getId() == mirrorID2) {
 				return true;
 			}
 		}
