@@ -76,17 +76,11 @@ public class Listeners implements Listener {
     private final Vector3 getSide(int side, int step) {
         switch (side) {
             case Vector3.SIDE_DOWN:
-                return new Vector3(this.x, this.y - step, this.z);
             case Vector3.SIDE_UP:
-                return new Vector3(this.x, this.y + step, this.z);
             case Vector3.SIDE_NORTH:
-                return new Vector3(this.x, this.y, this.z - step);
             case Vector3.SIDE_SOUTH:
-                return new Vector3(this.x, this.y, this.z + step);
             case Vector3.SIDE_WEST:
-                return new Vector3(this.x - step, this.y, this.z);
             case Vector3.SIDE_EAST:
-                return new Vector3(this.x + step, this.y, this.z);
             default:
                 return this;
         }
