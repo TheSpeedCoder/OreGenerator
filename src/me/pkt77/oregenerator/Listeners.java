@@ -10,7 +10,9 @@ import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.block.BlockFromEvent;
 import cn.nukkit.math.*;
-import cn.nukkit.level.*;
+import cn.nukkit.level.Level;
+import cn.nukkit.level.generator.Generator;
+import cn.nukkit.level.generator.Normal;
 
 public class Listeners implements Listener {
 	private OreGenerator _og;
